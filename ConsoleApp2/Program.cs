@@ -136,6 +136,7 @@ namespace Курсовая_работа_2
                 Console.WriteLine($"Результат: 01000000\nОЧ: Прибавляем значение к выходному регистру");
             }
             Console.WriteLine($"Выходной регистр: {result} - искомое число в двоичной системе");
+            Console.ReadLine();
         }
         static string Vvod(string inf, string type)
         {
