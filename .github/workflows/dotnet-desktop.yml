@@ -1,31 +1,19 @@
-name: Build dev
-
-on:
-  push:
-    branches: [master]
-
 jobs:
-  build:
-    name: Build and upload artifact
-    runs-on: windows-latest
+  publish-docs:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+    - name: Chekout
+      uses: actions/checkout@v3
+    - name: Dotnet Setup
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.x
 
-      - name: Install Setup .NET Core SDK 6.0
-        uses: subosito/flutter-action@v2
+    - run: dotnet tool update -g docfx
+    - run: docfx docfx_project/docfx.json
 
-      - name: Build
-        run: dotnet build -o .\outputs\test1.zip
-
-      - name: Upload build
-        uses: actions/upload-artifact@v3
-        with:
-          name: Build ${{ github.run_number }}
-          path: .\outputs\test1.zip
-
-      - name: Upload docs
-        uses: actions/upload-artifact@v3
-        with:
-          name: Docs ${{ github.run_number }}
-          path: .\outputs\test1.zip
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs/_site
