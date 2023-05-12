@@ -4,9 +4,8 @@
       "src": [
         {
           "files": [
-            "**/*.csproj"
-          ],
-          "src": "**/*.csproj"
+            "ConsoleApp2/*.cs"
+          ]
         }
       ],
       "dest": "api",
