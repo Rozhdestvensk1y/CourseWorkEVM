@@ -66,4 +66,4 @@ jobs:
       with:
         deploy_key: ${{ secrets.CODE }}
         publish_branch: gh-pages
-        publish_dir: docfx_project/_site/
+        publish_dir: api
