@@ -164,15 +164,6 @@ namespace ConsoleApp2
         /// <returns>The return value tell you whehter the compare operation is successful.</returns>
         public override bool Equals(object obj) { return false; }
 
-        /// <summary>
-        /// It's an <c>unsafe</c> method.
-        /// As you see, <paramref name="catName"/> is a <b>pointer</b>, so we need to add <languageKeyword>unsafe</languageKeyword> keyword.
-        /// </summary>
-        /// <param name="catName">Thie represent for cat name length.</param>
-        /// <param name="parameters">Optional parameters.</param>
-        /// <returns>Return cat tail's length.</returns>
-        public unsafe long GetTailLength(int* catName, params object[] parameters) { return 1; }
-
         //operator
         /// <summary>
         /// Addition operator of this class.
